@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head> 
+    <link rel='stylesheet' 
+    type='text/css' 
+    href='Battleship.css'>
+</head>
+
+<body>
+    <div id='battleChart'>
+
+        <div id='UI'>
+            <div class='innerUI' id='hits'>Hits:</div>
+            <div class='innerUI' id='turns'>Turns: 45</div>
+            <div class='innerUI' id='score'>Score:</div>
+
+        </div>
+        <div class='innerUI' id='startButton'>Error</div>
+
+
+    <!--A row-->
+    <div id='A0' class='unSelected' onclick='attack("A0")'>A-0</div>
+
+    <div id='A1' class='unSelected' onclick='attack("A1")'>A-1</div>
+
+    <div id='A2' class='unSelected' onclick='attack("A2")'>A-2</div>
+
+    <div id='A3' class='unSelected' onclick='attack("A3")'>A-3</div>
+
+    <div id='A4' class='unSelected' onclick='attack("A4")'>A-4</div>
+
+    <div id='A5' class='unSelected' onclick='attack("A5")'>A-5</div>
+
+    <div id='A6' class='unSelected' onclick='attack("A6")'>A-6</div>
+
+    <div id='A7' class='unSelected' onclick='attack("A7")'>A-7</div>
+
+    <div id='A8' class='unSelected' onclick='attack("A8")'>A-8</div>
+
+    <div id='A9' class='unSelected' onclick='attack("A9")'>A-9</div>
+
+    <!--B row-->
+    <div id='B0' class='unSelected' onclick='attack("B0")'>B-0</div>
+
+    <div id='B1' class='unSelected' onclick='attack("B1")'>B-1</div>
+
+    <div id='B2' class='unSelected' onclick='attack("B2")'>B-2</div>
+
+    <div id='B3' class='unSelected' onclick='attack("B3")'>B-3</div>
+
+    <div id='B4' class='unSelected' onclick='attack("B4")'>B-4</div>
+
+    <div id='B5' class='unSelected' onclick='attack("B5")'>B-5</div>
+
+    <div id='B6' class='unSelected' onclick='attack("B6")'>B-6</div>
+
+    <div id='B7' class='unSelected' onclick='attack("B7")'>B-7</div>
+
+    <div id='B8' class='unSelected' onclick='attack("B8")'>B-8</div>
+
+    <div id='B9' class='unSelected' onclick='attack("B9")'>B-9</div>
+
+    <!--C row-->
+    <div id='C0' class='unSelected' onclick='attack("C0")'>C-0</div>
+
+    <div id='C1' class='unSelected' onclick='attack("C1")'>C-1</div>
+
+    <div id='C2' class='unSelected' onclick='attack("C2")'>C-2</div>
+
+    <div id='C3' class='unSelected' onclick='attack("C3")'>C-3</div>
+
+    <div id='C4' class='unSelected' onclick='attack("C4")'>C-4</div>
+
+    <div id='C5' class='unSelected' onclick='attack("C5")'>C-5</div>
+
+    <div id='C6' class='unSelected' onclick='attack("C6")'>C-6</div>
+
+    <div id='C7' class='unSelected' onclick='attack("C7")'>C-7</div>
+
+    <div id='C8' class='unSelected' onclick='attack("C8")'>C-8</div>
+
+    <div id='C9' class='unSelected' onclick='attack("C9")'>C-9</div>
+
+    <!--D row-->
+    <div id='D0' class='unSelected' onclick='attack("D0")'>D-0</div>
+
+    <div id='D1' class='unSelected' onclick='attack("D1")'>D-1</div>
+
+    <div id='D2' class='unSelected' onclick='attack("D2")'>D-2</div>
+
+    <div id='D3' class='unSelected' onclick='attack("D3")'>D-3</div>
+
+    <div id='D4' class='unSelected' onclick='attack("D4")'>D-4</div>
+
+    <div id='D5' class='unSelected' onclick='attack("D5")'>D-5</div>
+
+    <div id='D6' class='unSelected' onclick='attack("D6")'>D-6</div>
+
+    <div id='D7' class='unSelected' onclick='attack("D7")'>D-7</div>
+
+    <div id='D8' class='unSelected' onclick='attack("D8")'>D-8</div>
+
+    <div id='D9' class='unSelected' onclick='attack("D9")'>D-9</div>
+
+    <!--E row-->
+    <div id='E0' class='unSelected' onclick='attack("E0")'>E-0</div>
+
+    <div id='E1' class='unSelected' onclick='attack("E1")'>E-1</div>
+
+    <div id='E2' class='unSelected' onclick='attack("E2")'>E-2</div>
+
+    <div id='E3' class='unSelected' onclick='attack("E3")'>E-3</div>
+
+    <div id='E4' class='unSelected' onclick='attack("E4")'>E-4</div>
+
+    <div id='E5' class='unSelected' onclick='attack("E5")'>E-5</div>
+
+    <div id='E6' class='unSelected' onclick='attack("E6")'>E-6</div>
+
+    <div id='E7' class='unSelected' onclick='attack("E7")'>E-7</div>
+
+    <div id='E8' class='unSelected' onclick='attack("E8")'>E-8</div>
+
+    <div id='E9' class='unSelected' onclick='attack("E9")'>E-9</div>
+
+    <!--F row-->
+    <div id='F0' class='unSelected' onclick='attack("F0")'>F-0</div>
+
+    <div id='F1' class='unSelected' onclick='attack("F1")'>F-1</div>
+
+    <div id='F2' class='unSelected' onclick='attack("F2")'>F-2</div>
+
+    <div id='F3' class='unSelected' onclick='attack("F3")'>F-3</div>
+
+    <div id='F4' class='unSelected' onclick='attack("F4")'>F-4</div>
+
+    <div id='F5' class='unSelected' onclick='attack("F5")'>F-5</div>
+
+    <div id='F6' class='unSelected' onclick='attack("F6")'>F-6</div>
+
+    <div id='F7' class='unSelected' onclick='attack("F7")'>F-7</div>
+
+    <div id='F8' class='unSelected' onclick='attack("F8")'>F-8</div>
+
+    <div id='F9' class='unSelected' onclick='attack("F9")'>F-9</div>
+
+    <!--G row-->
+    <div id='G0' class='unSelected' onclick='attack("G0")'>G-0</div>
+
+    <div id='G1' class='unSelected' onclick='attack("G1")'>G-1</div>
+
+    <div id='G2' class='unSelected' onclick='attack("G2")'>G-2</div>
+
+    <div id='G3' class='unSelected' onclick='attack("G3")'>G-3</div>
+
+    <div id='G4' class='unSelected' onclick='attack("G4")'>G-4</div>
+
+    <div id='G5' class='unSelected' onclick='attack("G5")'>G-5</div>
+
+    <div id='G6' class='unSelected' onclick='attack("G6")'>G-6</div>
+
+    <div id='G7' class='unSelected' onclick='attack("G7")'>G-7</div>
+
+    <div id='G8' class='unSelected' onclick='attack("G8")'>G-8</div>
+
+    <div id='G9' class='unSelected' onclick='attack("G9")'>G-9</div>
+
+    <!--H row-->
+    <div id='H0' class='unSelected' onclick='attack("H0")'>H-0</div>
+
+    <div id='H1' class='unSelected' onclick='attack("H1")'>H-1</div>
+
+    <div id='H2' class='unSelected' onclick='attack("H2")'>H-2</div>
+
+    <div id='H3' class='unSelected' onclick='attack("H3")'>H-3</div>
+
+    <div id='H4' class='unSelected' onclick='attack("H4")'>H-4</div>
+
+    <div id='H5' class='unSelected' onclick='attack("H5")'>H-5</div>
+
+    <div id='H6' class='unSelected' onclick='attack("H6")'>H-6</div>
+
+    <div id='H7' class='unSelected' onclick='attack("H7")'>H-7</div>
+
+    <div id='H8' class='unSelected' onclick='attack("H8")'>H-8</div>
+
+    <div id='H9' class='unSelected' onclick='attack("H9")'>H-9</div>
+
+    <!--I row-->
+    <div id='I0' class='unSelected' onclick='attack("I0")'>I-0</div>
+
+    <div id='I1' class='unSelected' onclick='attack("I1")'>I-1</div>
+
+    <div id='I2' class='unSelected' onclick='attack("I2")'>I-2</div>
+
+    <div id='I3' class='unSelected' onclick='attack("I3")'>I-3</div>
+
+    <div id='I4' class='unSelected' onclick='attack("I4")'>I-4</div>
+
+    <div id='I5' class='unSelected' onclick='attack("I5")'>I-5</div>
+
+    <div id='I6' class='unSelected' onclick='attack("I6")'>I-6</div>
+
+    <div id='I7' class='unSelected' onclick='attack("I7")'>I-7</div>
+
+    <div id='I8' class='unSelected' onclick='attack("I8")'>I-8</div>
+
+    <div id='I9' class='unSelected' onclick='attack("I9")'>I-9</div>
+
+    <!--J row-->
+    <div id='J0' class='unSelected' onclick='attack("J0")'>J-0</div>
+
+    <div id='J1' class='unSelected' onclick='attack("J1")'>J-1</div>
+
+    <div id='J2' class='unSelected' onclick='attack("J2")'>J-2</div>
+
+    <div id='J3' class='unSelected' onclick='attack("J3")'>J-3</div>
+
+    <div id='J4' class='unSelected' onclick='attack("J4")'>J-4</div>
+
+    <div id='J5' class='unSelected' onclick='attack("J5")'>J-5</div>
+
+    <div id='J6' class='unSelected' onclick='attack("J6")'>J-6</div>
+
+    <div id='J7' class='unSelected' onclick='attack("J7")'>J-7</div>
+
+    <div id='J8' class='unSelected' onclick='attack("J8")'>J-8</div>
+
+    <div id='J9' class='unSelected' onclick='attack("J9")'>J-9</div>
+    </div>
+
+
+</body>
+
+    <script src='Battleship.js'>
+    </script> 
+</html>
