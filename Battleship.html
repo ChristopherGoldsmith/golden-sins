@@ -7,18 +7,17 @@
     href='Battleship.css'>
 </head>
 
-<body>
+<body id='gameBody'>
     <div id='battleChart'>
 
         <div id='UI'>
             <div class='innerUI' id='hits'>Hits:</div>
-            <div class='innerUI' id='turns'>Turns: 45</div>
+            <div class='innerUI' id='turns'>Turn: 1</div>
             <div class='innerUI' id='score'>Score:</div>
 
         </div>
         <div class='innerUI' id='startButton'>Error</div>
-
-
+        
     <!--A row-->
     <div id='A0' class='unSelected' onclick='attack("A0")'>A-0</div>
 
@@ -228,6 +227,13 @@
     <div id='J8' class='unSelected' onclick='attack("J8")'>J-8</div>
 
     <div id='J9' class='unSelected' onclick='attack("J9")'>J-9</div>
+    </div>
+    <div id='controlPanel'>
+        <div id='radarUses' class='UI' onclick='useRadar()'>Radar<br>
+        <div id='radar'></div>
+        </div>
+        <div id='superMissile' class='UI'>Super Missiles</div>
+        <div id='hero' class='UI'>Your Hero</div>
     </div>
 
 

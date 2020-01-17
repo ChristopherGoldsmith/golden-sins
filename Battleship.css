@@ -1,6 +1,22 @@
 html{
     background: linear-gradient(to left, #0099cc 13%, #00ff99 96%);
 }
+#gameBody{
+    width: 980px;
+    height: 635px;
+    margin: auto;
+    border: black 5px solid;
+    background-image: url('island3.jpg');
+}
+#controlPanel{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+    width: 310px;
+    height: 605px;
+    padding: 25px;
+    float: right;
+}
 #battleChart{
     display: grid;
     width: 550px;
@@ -8,14 +24,11 @@ html{
     grid-template-columns: repeat(10, 50px);
     grid-template-rows: repeat(11, 50px);
     grid-gap: 5px;
-    background-image: url('island3.jpg');
-    margin: auto;
     padding: 25px;
-    border:black 10px solid;
+    float: left;
 }
 #UI{
     grid-column: 1 / 8;
-    border: 1px black solid;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2px;
@@ -25,9 +38,35 @@ html{
     color: seashell;
     font-weight: bold;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    
+}
+.UI{
+    background-color: black;
+    opacity: 0.92;
+    border: green 2px solid;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    font-size: 35px;
+    color: rgb(24, 179, 24);
+    font-weight: bold;
+}
+.UI:hover{
+    background-color: chartreuse;
+}
+#radar{
+    width: 100px;
+    height: 60px;
+    color: rgb(0, 255, 98);
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 50px;
+    border: 1px green solid;
 }
 .innerUI{
     background-color: teal;
+    border: rgba(57, 135, 224, 0.493) 2px solid;
 }
 .innerUI2{
     background-color: crimson;   
@@ -52,7 +91,7 @@ html{
     padding-top: 14px;
 }
 .unSelected:hover{
-    background-color: red;
+    background-color: chartreuse;
 }
 .hit{
     background-color: coral;
@@ -69,3 +108,12 @@ html{
     font-size: 18px;
     text-align: center;
     padding-top: 14px;
+}
+.detect{
+    background-color:chartreuse;
+    opacity: 0.8;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 14px;
+}
