@@ -91,42 +91,43 @@ function powerBat(max, energy){
         }
     }
 }
-function radarBattery(){
-    radarBat = new powerBat(5, 0);
+function newBattery(){
+    battery = new powerBat(5, 0);
     console.log('this is working');
     return radarBat;
-}
+};
 //
 let ships = [];
 let score = 0;
 let hits = 0;
-let misses = 0;
 let turns = 1;
 let pressed = false;
 let radarBat;
+let launchMis = false;
+let hitPoints = 100;
 uCharge = 0;
 //
 window.onload = () => {
     document.getElementById('startButton').className= 'innerUI2';
-    document.getElementById('startButton').innerHTML= 'ENEMY!'
+    document.getElementById('startButton').innerHTML= 'ENEMY!';
     //Generates ships on load
     if(!pressed){
         pressed = true;
         shipCreate();
         shipGen();
-        radarBattery();
+        newBattery();
     };
 };
-let chargeRadar = () => {
-    radarBat.charge(1);
+let chargeBattery = () => {
+    battery.charge(1);
     uCharge = uCharge + 1;
     chargeUp(uCharge);
     console.log('works');
 };
 let useRadar = () =>{
-    if(radarBat.energy == radarBat.max){
-    radarBat.useCharge();
-    chargeDwn(5);
+    if(battery.energy == battery.max){
+    battery.useCharge();
+    chargeDwn(battery.max);
     uCharge = 0;
     let locator = Math.floor(Math.random() * ships.length);
     let foundShip = ships[locator];
@@ -145,37 +146,102 @@ let useRadar = () =>{
             }
         };
     } else {
-        alert(`You need ${radarBat.max - radarBat.energy} charges to use this ability!`);
+        alert(`You need ${battery.max - battery.energy} charges to use this ability!`);
     }
 };
-function sMissile(){
-
+let prepMissile = () =>{
+    if(battery.energy >= 3){
+    launchMis = true;
+    alert('Missile is ready to launch');
+    };
 };
-function hitOrMiss(hit, cord){
-    if(hit){
-        document.getElementById(cord).className = 'hit';
-        hits = hits + 1;
-        turns = turns + 1;
-        ships[i].units[ifHit] = 0;
-        scoring();
-        scoreCard();
-        var audio = new Audio('hit.ogg');
-        audio.pause();
-        audio.play();
+function movement(array, dir){
+    hitOrMiss(array);
+    newArr = Array.from(array);
+    locL = newArr[0];
+    locN = newArr[1];
+    if (dir == 1){
+        if(locL >= 1){
+            locL = locL - 1;
+        };
+        array = `${locL}${locN}`;
+        hitOrMiss(array);
+    } else if(dir == 2){
+        if(locL <= 8){
+        locL = locL - -1;
+        };
+        array = `${locL}${locN}`;
+        hitOrMiss(array);
+    } else if(dir == 3){
+        if(locN <= 8){
+            locN = locN - -1;
+            };
+        array = `${locL}${locN}`;
+        hitOrMiss(array);
+    } else if (dir == 4){
+        if(locN >= 1){
+            locN = locN - 1;
+        }
+        array = `${locL}${locN}`;
+        hitOrMiss(array);
+    } else {
 
-    } else if(!hit){
+    }
+}
+function superMissile(cord){
+    for(n = 0; 5 > n; n++){
+            newCord = cord;
+            movement(newCord, n)
+        }
+    chargeDwn(battery.max);
+    launchMis = false;
+    uCharge = uCharge - 3;
+};
+function hitOrMiss(cord){
+    if (document.getElementById(cord).className == 'hit' || document.getElementById(cord).className == 'miss'){
+        return;
+    }
+    for(i = 0; i < ships.length; i++){
+        let shipID = ships[i];
+        ifHit = shipID.units.indexOf(cord);
+        if (-1 < ifHit){
+            document.getElementById(cord).className = 'hit';
+            hits = hits + 1;
+            if(!launchMis){
+                turns = turns + 1;
+            }
+            ships[i].units[ifHit] = 0;
+            scoring();
+            scoreCard();
+            var audio = new Audio('hit.ogg');
+            audio.pause();
+            audio.play();
+                if(hits == 17){
+                    alert('You win!')
+                    document.getElementById('startButton').innerHTML= 'VICTORY'
+
+            }
+            break;
+        }
+    } if (-1 >= ifHit){
         document.getElementById(cord).className = 'miss';
-        misses = misses + 1;
-        turns = turns + 1;
+        if(!launchMis){
+            turns = turns + 1;
+        }
         scoring();
         scoreCard();
         var audio = new Audio('miss.ogg');
         audio.pause();
         audio.play();
-    }
+            if( turns > 30){
+               alert('Your base is lost to the enemy forces.');
+               document.getElementById('startButton').innerHTML= 'DEFEAT'
+               pressed = false;
+            }
+        }
 }
-function coinFlip(funct){
-    randomNum = Math.floor(Math.random() * 10)
+function chargeChance(funct){
+    randomNum = Math.floor(Math.random() * (8 + hits))
     if( randomNum < 5){
         console.log(randomNum);
         return funct();
@@ -206,32 +272,25 @@ let chargeDwn = (num) => {
 };
 //Attack function
 function attack(cord){
-if(pressed){
-    coinFlip(chargeRadar);
-    for(i = 0; i < ships.length; i++){
-        let shipID = ships[i];
-        ifHit = shipID.units.indexOf(cord);
-        if (-1 < ifHit){
-            hitOrMiss(true, cord);
-            if(score >= 1000 || hits == 17){
-               alert('You win!')
-               document.getElementById('startButton').innerHTML= 'VICTORY'
-               pressed = false;
-            }
-            break
-        }
-    } if (-1 >= ifHit){
-            hitOrMiss(false, cord);
-            if( score < 0){
-               alert('Your base is lost to the enemy forces.');
-               document.getElementById('startButton').innerHTML= 'DEFEAT'
-               pressed = false;
-            }
-        }
+    if(launchMis){
+        superMissile(cord);
     }
-}
+else if(pressed && document.getElementById(cord).className != 'hit'){
+    chargeChance(chargeBattery);
+    hitOrMiss(cord);
+    }
+};
 function shipStats(){
-    for(i=0;i<=4;i++){
+    for(i = 0; ships.length > i; i++ ){
     console.log(ships[i]);
     }
 }
+function bide(){
+    chargeBattery();
+    turns = turns + 1;
+    scoreCard();
+}
+var sample = document.getElementById("bgnoise");
+function playSound(){
+    sample.play();
+}        

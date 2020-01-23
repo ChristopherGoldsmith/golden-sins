@@ -5,6 +5,7 @@
     <link rel='stylesheet' 
     type='text/css' 
     href='Battleship.css'>
+
 </head>
 
 <body id='gameBody'>
@@ -129,19 +130,24 @@
     <div id='99' class='unSelected' name='J-9' onclick='attack("99")'>J-9</div>
     </div>
     <div id='controlPanel'>
-        <div id='radarUses' class='UI' onclick='useRadar()'>
-        <div id='radarName'>Radar</div>
-        <div id = 'charge1' class = 'noCharge'></div>
-        <div id = 'charge2' class = 'noCharge'></div>
-        <div id = 'charge3' class = 'noCharge'></div>
-        <div id = 'charge4' class = 'noCharge'></div>
+        <div id='radarUses'>
+        <div id='radarName' class='radarName'>
+        <br>
         <div id = 'charge5' class = 'noCharge'></div>
+        <div id = 'charge4' class = 'noCharge'></div>
+        <div id = 'charge3' class = 'noCharge'></div>
+        <div id = 'charge2' class = 'noCharge'></div>
+        <div id = 'charge1' class = 'noCharge'></div>
         </div>
-        <div id='superMissile' class='UI'>Super Missiles</div>
-        <div id='text' class='UI' onclick='shipStats()'>Enemy text</div>
+        <div id='text' class='sidebar' onclick='bide()'>Charge Energy<br><br>5 Max</div>
     </div>
-
-
+    <div id='abilities'>
+        <div class='sidebar' onclick='prepMissile()'>Super Missiles<br>[3 Energy]</div>
+        <div id='text' class='sidebar' onclick='useRadar()'>Use Radar<br>[5 Energy]</div>
+        </div>
+        <div id='text' class='sidebar'>Enemy</div>
+        </div>
+    </div>
 </body>
 
     <script src='Battleship.js'>
