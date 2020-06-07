@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel='stylesheet' 
+        type='text/css' 
+        href='protoBoard.css'>
+    </head>
+    <div id='scoreboard'>START!</div>
+    <div id='gameBoard'>
+        <div id='card1' class='hand' onclick='delCard(0, 1)'><img class='cardImage' id='cardImg1' src =''></div>
+        <div id='card2' class='hand' onclick='delCard(1, 1)'><img class='cardImage' id='cardImg2' src =''></div>
+        <div id='card3' class='hand' onclick='delCard(2, 1)'><img class='cardImage' id='cardImg3' src =''></div>
+        <div id='card4' class='hand' onclick='delCard(3, 1)'><img class='cardImage' id='cardImg4' src =''></div>
+        <div id='card5' class='hand' onclick='delCard(4, 1)'><img class='cardImage' id='cardImg5' src =''></div>
+
+        <div class='scoreAndButton'>
+            <div id='gameButton' onclick='winCon()'>Deal</div>
+            <div id='score'>$100</div>
+        </div>
+    </div>
+    <button id='testItem' onclick='testThis()'>Click Me To Test</button>
+
+    <script src='protoCard.js'></script>
+    <script src='protoBoard.js'></script>
+    
+
+</html>

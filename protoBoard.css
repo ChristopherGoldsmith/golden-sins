@@ -1,0 +1,72 @@
+#test {
+    height: 80px;
+    width: 45px;
+    background-color: teal;
+    display: inline-block;
+    border: black 5px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+#scoreboard{
+    background-color: black;
+    border: brown 5px solid;
+    width: 465px;
+    height: 75px;
+    font-size: 50px;
+    color: orangered;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: -1px 0 brown, 0 1px brown, 1px 0 brown, 0 -1px brown;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+}
+#gameBoard{
+    background-color: green;
+    border: brown 5px solid;
+    height: 300px;
+    width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hand {
+    display: inline-block;
+    margin: 10px;
+    border: green 6px solid;
+    background-color: green;
+    height: 110px;
+    width: 75px;
+    font-size: 12px;
+    text-align: center;
+    padding: 5px;
+    overflow: hidden;
+}
+.hand:hover{
+    background-color: indianred;
+}
+.cardImage{
+    height: 105px;
+    width: 69px;
+    border: black 1px solid;
+}
+#score{
+    font-size: 75px;
+    color: red;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    padding: 5px;
+}
+.scoreAndButton{
+    height: 30px;
+    display: inline-block;
+}
+#gameButton{
+    background-color: yellow;
+    width: 150px;
+    font-size: 50px;
+    border: black 3px solid;
+    text-align: center;
+}
+#gameButton:hover{
+    background-color: crimson;
+    border: white 3px solid;
+}
